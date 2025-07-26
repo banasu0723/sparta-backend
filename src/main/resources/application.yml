@@ -28,3 +28,15 @@ spring:
     banner-mode: console
   application:
     name: auth-system
+
+# Swagger 설정
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  use-management-port: false
+  show-actuator: false
+  packages-to-scan: hello.auth.controller

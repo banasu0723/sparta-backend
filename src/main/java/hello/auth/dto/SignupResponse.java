@@ -2,6 +2,7 @@ package hello.auth.dto;
 
 import hello.auth.entity.Role;
 import hello.auth.entity.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,9 +11,15 @@ import java.util.stream.Collectors;
 
 @Getter
 @Setter
+@Schema(description = "회원가입/사용자 정보 응답 DTO")
 public class SignupResponse {
+    @Schema(description = "사용자명", example = "테스트유저")
     private String username;
+
+    @Schema(description = "닉네임", example = "테스트유저")
     private String nickname;
+
+    @Schema(description = "사용자 권한 목록")
     private List<RoleDto> roles;
 
     public SignupResponse() {
@@ -26,7 +33,9 @@ public class SignupResponse {
                 .collect(Collectors.toList());
     }
 
+    @Schema(description = "권한 정보")
     public static class RoleDto {
+        @Schema(description = "권한명", example = "USER")
         private String role;
 
         public RoleDto(){
