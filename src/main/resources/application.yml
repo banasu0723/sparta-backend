@@ -1,0 +1,30 @@
+server:
+  address: 0.0.0.0
+  port: 8080
+  error:
+    include-stacktrace: always
+    include-message: always
+
+jwt:
+  # 기존: mySecretKeyForJWTTokenGenerationAndValidation2024 (49자)
+  # 수정: 64자 이상으로 변경
+  secret: mySecretKeyForJWTTokenGenerationAndValidation2024ExtraCharsToMeet64ByteRequirement
+  expiration: 7200000 # 2시간 (밀리초)
+
+logging:
+  level:
+    hello.auth: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.security.web.FilterChainProxy: DEBUG
+    org.springframework.security.config.annotation.web.builders: DEBUG
+    org.springframework.security: DEBUG
+    org.springframework.boot: INFO
+    root: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+spring:
+  main:
+    banner-mode: console
+  application:
+    name: auth-system
