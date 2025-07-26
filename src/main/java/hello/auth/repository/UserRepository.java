@@ -31,6 +31,12 @@ public class UserRepository {
         return Optional.ofNullable(users.get(id));
     }
 
+    public void clear() {
+        users.clear();
+        usersByUsername.clear();
+        idGenerator.set(1);
+    }
+
     public boolean existsByUsername(String username) {
         return usersByUsername.containsKey(username);
     }

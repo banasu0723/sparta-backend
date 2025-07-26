@@ -8,6 +8,7 @@ import hello.auth.entity.Role;
 import hello.auth.entity.User;
 import hello.auth.exception.InvalidCredentialsException;
 import hello.auth.exception.UserAlreadyExistsException;
+import hello.auth.exception.UserNotFoundException;
 import hello.auth.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class UserService {
 
     public SignupResponse grantAdminRole(Long userId) {
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("사용자를 찾을 수 없습니다."));
+                .orElseThrow(() -> new UserNotFoundException("사용자를 찾을 수 없습니다."));
 
         // 기존 역할을 모두 제거하고 ADMIN만 설정
         user.getRoles().clear();

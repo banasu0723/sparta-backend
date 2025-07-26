@@ -52,6 +52,19 @@ public class SecurityConfig {
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
         System.out.println("=== SecurityFilterChain 생성 완료 ===");
+
+        http.exceptionHandling(exceptions -> exceptions
+                .authenticationEntryPoint((request, response, authException) -> {
+                    response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                    response.setContentType("application/json;charset=UTF-8");
+                    ErrorResponse errorResponse = new ErrorResponse("INVALID_TOKEN", "유효하지 않은 인증 토큰입니다.");
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    response.getWriter().write(objectMapper.writeValueAsString(errorResponse));
+                })
+                .accessDeniedHandler((request, response, accessDeniedException) ->
+                        handleAccessDeniedException(response))
+        );
+
         return http.build();
     }
 
@@ -72,4 +85,6 @@ public class SecurityConfig {
         ObjectMapper objectMapper = new ObjectMapper();
         response.getWriter().write(objectMapper.writeValueAsString(errorResponse));
     }
+
+
 }
