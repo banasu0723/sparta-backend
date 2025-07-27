@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-
 @Configuration
 public class SwaggerConfig {
 
@@ -27,7 +26,8 @@ public class SwaggerConfig {
                                 .name("Apache 2.0")
                                 .url("https://www.apache.org/licenses/LICENSE-2.0")))
                 .servers(List.of(
-                        new Server().url("http://localhost:8080").description("개발 서버")
+                        new Server().url("http://13.124.189.237:8080").description("EC2 Production Server"),
+                        new Server().url("http://localhost:8080").description("Local Development")
                 ))
                 .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new Components()
