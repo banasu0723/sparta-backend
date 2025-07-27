@@ -55,8 +55,8 @@ Spring Boot를 기반으로 한 JWT 인증 및 권한 관리 시스템입니다.
 
 - **로컬**: http://localhost:8080/swagger-ui/index.html
 - **배포 서버**:
-    - **Swagger UI**: http://3.39.9.124:8080/swagger-ui/index.html
-    - **API Base URL**: http://3.39.9.124:8080
+    - **Swagger UI**: http://13.124.189.237:8080/swagger-ui/index.html
+    - **API Base URL**: http://13.124.189.237:8080
 
 
 ### 테스트 구조
@@ -82,7 +82,7 @@ Spring Boot를 기반으로 한 JWT 인증 및 권한 관리 시스템입니다.
 - 토큰 만료 테스트
 - 클레임 추출 테스트
 
-### 테스트 커버리지
+## 테스트 커버리지
 
 <img width="1452" height="654" alt="image" src="https://github.com/user-attachments/assets/800c9654-7b88-4cc0-a9da-7f21a5a14193" />
 
