@@ -35,6 +35,9 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+    servers:
+      - url: http://13.124.189.237:8080
+        description: EC2 Production Server
     tags-sorter: alpha
     operations-sorter: alpha
   use-management-port: false
