@@ -27,7 +27,6 @@ Spring Boot를 기반으로 한 JWT 인증 및 권한 관리 시스템입니다.
 
 ### Deployment
 - **AWS EC2 (Ubuntu 22.04)**
-- **Nginx (리버스 프록시)**
 
 ## ✨ 주요 기능
 
